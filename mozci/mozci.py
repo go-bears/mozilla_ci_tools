@@ -68,15 +68,15 @@ def _unique_build_request(buildername, revision):
             return False
         return True
 
-
 def _status_summary(jobs):
     """Return the number of successful, pending and running jobs."""
     assert type(jobs) == list
-    successful = 0
-    pending = 0
-    running = 0
-    coalesced = 0
-    failed = 0
+    status_summary = {successful = 0,
+                      pending = 0,
+                      running = 0,
+                      coalesced = 0,
+                      failed = 0
+                     }
 
     for job in jobs:
         status = QUERY_SOURCE.get_job_status(job)
@@ -91,7 +91,7 @@ def _status_summary(jobs):
         if status in (FAILURE, WARNING, EXCEPTION, RETRY):
             failed += 1
 
-    return (successful, pending, running, coalesced, failed)
+    return (status_summary)
 
 
 def _determine_trigger_objective(revision, buildername, trigger_build_if_missing=True):
