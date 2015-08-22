@@ -71,11 +71,11 @@ def _unique_build_request(buildername, revision):
 def _status_summary(jobs):
     """Return the number of successful, pending and running jobs."""
     assert type(jobs) == list
-    status_summary = {successful = 0,
-                      pending = 0,
-                      running = 0,
-                      coalesced = 0,
-                      failed = 0
+    status_summary = {successful: 0,
+                      pending: 0,
+                      running: 0,
+                      coalesced: 0,
+                      failed: 0
                      }
 
     for job in jobs:
