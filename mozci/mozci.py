@@ -85,7 +85,6 @@ def _status_summary(jobs):
             status_summary['coalesced'] += 1
         if status in (FAILURE, WARNING, EXCEPTION, RETRY):
             status_summary['failed'] += 1
-
     return (status_summary)
 
 
